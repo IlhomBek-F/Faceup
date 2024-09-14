@@ -1,14 +1,14 @@
-import { useState } from 'react'
+import { Header } from './components/Header/Header'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
+      <Header />
       <div className='container'>
         {Array.from({ length: 10 }).map((k, i) => {
-          return <div className='cube'>{i}</div>
+          return <div className='cube' key={i}>{i}</div>
         })}
       </div>
     </>
