@@ -6,7 +6,8 @@ const apiKey = import.meta.env.VITE_API_KEY
 export const http = axios.create({
     baseURL: baseURL,
     headers: {
-        Authorization: `Client-ID ${apiKey}`
+        Authorization: `Client-ID ${apiKey}`,
+        ['Accept-Version']: 'v1'
     }
 })
 
@@ -16,3 +17,7 @@ http.interceptors.request.use(
         Promise.reject(error.response || error.message);
     }
 );
+
+http.interceptors.response.use((value) => {
+    return value.data;
+})

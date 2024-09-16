@@ -11,7 +11,7 @@ function Header({handleSearch}: {handleSearch: (query: any) => void}) {
             <Space direction='vertical'>
               <Search placeholder="search..." className='header__search' enterButton
                ref={inputRef}
-               onPressEnter={handleSearch}
+               onPressEnter={(e) => handleSearch(e.currentTarget.value)}
                onSearch={() => handleSearch(inputRef.current?.input.value)}
               />
             </Space>

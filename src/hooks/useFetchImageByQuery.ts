@@ -16,7 +16,7 @@ function useGetImageByQuery() {
         refetch()
     }
     
-    return {handleGetByQuery, data, isFetching, error}
+    return {handleGetByQuery, imagesByQuery: data ?? [], isLoadingImagesByQuery: isFetching, error}
 }
 
 export {useGetImageByQuery}

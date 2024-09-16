@@ -1,15 +1,20 @@
-import { useRandomImages } from '../../hooks/useRandomImages';
 import './image-collections.css';
 
-function ImageCollections() {
-   const {status, data, error, isFetching} = useRandomImages();
+ enum imageSizes {
+    RAW = 'raw',
+    REGULAR = 'regular',
+    SMALL = 'small',
+    THUMB = 'thumb',
+    SMALL_S3 = 'small_s3'
+ } 
 
-   if(isFetching) {
-    return <p>Loading...</p>
-   }
-   
+function ImageCollections({images}: {images: any[]}) {
     return (
-        <p>Images</p>
+        <div className='image-container'>
+            {images.map((obj) => {
+                    return <img src={obj.urls[imageSizes.SMALL]} alt='image' key={obj.id} className='img'/>
+            })}
+        </div>
     )
 }
 

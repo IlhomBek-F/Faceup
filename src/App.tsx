@@ -1,18 +1,27 @@
 import { Header } from './components/Header/Header'
 import './App.css'
 import { ImageCollections } from './components/ImageCollections/Image-collections'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient } from '@tanstack/react-query';
+import { useRandomImages } from './hooks/useRandomImages';
+import { ImagePlaceholders } from './components/ImagePlaceholders/Image-placeholders';
+import { useEffect, useState } from 'react';
+import { useGetImageByQuery } from './hooks/useFetchImageByQuery';
 
-const queryClient = new QueryClient()
+export const queryClient = new QueryClient()
 
-function App() {
+function App() { 
+  const { data = [], error, isFetching} = useRandomImages();
+  const {handleGetByQuery, imagesByQuery, isLoadingImagesByQuery} = useGetImageByQuery();
+  const [images, setImages] = useState(data);
+
+  useEffect(() => {
+    setImages(imagesByQuery.length ? imagesByQuery : data)
+  }, [isFetching, isLoadingImagesByQuery]);
 
   return (
     <>
-    <QueryClientProvider client={queryClient}> 
-      <Header />
-      <ImageCollections />
-    </QueryClientProvider>
+      <Header handleSearch={handleGetByQuery}/>
+      {(isFetching || isLoadingImagesByQuery) && <ImagePlaceholders /> || <ImageCollections images={images}/>}
     </>
   )
 }
