@@ -1,0 +1,21 @@
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 93px;
+}
+
+.img {
+    transition: all ease-in-out .3s;;
+}
+
+.img:hover {
+    scale: 1.02;
+    box-shadow: -2px 2px 9px -1px rgba(76,20,77,0.7);
+    -webkit-box-shadow: -2px 2px 9px -1px rgba(76,20,77,0.7);
+    -moz-box-shadow: -2px 2px 9px -1px rgba(76,20,77,0.7);
+        transition: all ease-in-out .3s;
+}

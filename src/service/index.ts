@@ -1,6 +1,6 @@
 import { baseURL, http } from "../http/http-config";
 
-export async function getRandomImage() {
+async function getRandomImage() {
   try {
     const res = await http.get(baseURL);
     return res.data
@@ -8,3 +8,15 @@ export async function getRandomImage() {
     throw error
   }
 }
+
+async function getImageByQuery(query: string) {
+  try {
+    const res = await http.get(`${baseURL}?query=${query}`);
+
+    return res
+  } catch (error) {
+    throw error
+  }
+}
+
+export {getRandomImage, getImageByQuery}
