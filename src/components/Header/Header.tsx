@@ -1,19 +1,18 @@
 import { Input, Space } from 'antd';
 import '../Header/header.css';
+import { useRef } from 'react';
 
-function Header() {
+function Header({handleSearch}: {handleSearch: (query: any) => void}) {
     const { Search } = Input;
-    
-    const handleSearch = () => {
-       console.log('searching...')
-    }
+    const inputRef = useRef(null);
 
     return (
         <div className='header'>
             <Space direction='vertical'>
-              <Search placeholder="search..." className='header__search' enterButton 
+              <Search placeholder="search..." className='header__search' enterButton
+               ref={inputRef}
                onPressEnter={handleSearch}
-               onSearch={handleSearch}
+               onSearch={() => handleSearch(inputRef.current?.input.value)}
               />
             </Space>
         </div>
