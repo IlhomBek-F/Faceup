@@ -1,5 +1,5 @@
 import { Header } from './components/Header/Header'
-import { ImageCollections } from './components/ImageCollections/Image-collections'
+import { ImageLists } from './components/ImageLists/Image-lists'
 import { QueryClient } from '@tanstack/react-query';
 import { useRandomImages } from './hooks/useRandomImages';
 import { ImagePlaceholders } from './components/ImagePlaceholders/Image-placeholders';
@@ -12,7 +12,7 @@ export const queryClient = new QueryClient()
 function App() { 
   const { data = [], error, isFetching} = useRandomImages();
   const {handleGetByQuery, imagesByQuery, isLoadingImagesByQuery} = useGetImageByQuery();
-  const [images, setImages] = useState(data);
+  const [imageColumns, setImages] = useState(data);
 
   useEffect(() => {
     setImages(imagesByQuery.length ? imagesByQuery : data)
@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <Header handleSearch={handleGetByQuery}/>
-      {(isFetching || isLoadingImagesByQuery) && <ImagePlaceholders /> || <ImageCollections images={images}/>}
+      {(isFetching || isLoadingImagesByQuery) && <ImagePlaceholders /> || <ImageLists imageColumns={imageColumns}/>}
     </>
   )
 }

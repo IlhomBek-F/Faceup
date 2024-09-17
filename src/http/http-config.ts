@@ -1,4 +1,5 @@
 import axios from "axios";
+import { normalizeResponseData } from "../helper";
 
 export const baseURL = import.meta.env.VITE_API_URL
 const apiKey = import.meta.env.VITE_API_KEY
@@ -18,6 +19,10 @@ http.interceptors.request.use(
     }
 );
 
-http.interceptors.response.use((value) => {
-    return value.data;
+http.interceptors.response.use(({data}) => {
+    const totalImage = data.results.length || data.length;
+    const images = data.results || data;
+   
+
+    return normalizeResponseData(totalImage, images)
 })

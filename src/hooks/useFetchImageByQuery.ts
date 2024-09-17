@@ -14,7 +14,9 @@ function useGetImageByQuery() {
 
     const handleGetByQuery = (queryData: string) => {
         query = queryData;
-        refetch()
+        if(query.length) {
+            refetch()
+        }
     }
     
     return {handleGetByQuery, imagesByQuery: data ?? [], isLoadingImagesByQuery: isFetching, error}
