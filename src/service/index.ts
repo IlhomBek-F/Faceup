@@ -11,7 +11,7 @@ async function getRandomImage() {
 
 async function getImageByQuery(query: string) {
   try {
-    const res = await http.get(`${baseURL}search/photos/?query=${query}`);
+    const res = await http.get(`${baseURL}search/photos/?per_page=50&query=${query}`);
 
     return res.results
   } catch (error) {

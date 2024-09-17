@@ -1,11 +1,11 @@
 import { Header } from './components/Header/Header'
-import './App.css'
 import { ImageCollections } from './components/ImageCollections/Image-collections'
 import { QueryClient } from '@tanstack/react-query';
 import { useRandomImages } from './hooks/useRandomImages';
 import { ImagePlaceholders } from './components/ImagePlaceholders/Image-placeholders';
 import { useEffect, useState } from 'react';
 import { useGetImageByQuery } from './hooks/useFetchImageByQuery';
+import './App.css'
 
 export const queryClient = new QueryClient()
 
