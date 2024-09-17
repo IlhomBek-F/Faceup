@@ -4,14 +4,16 @@
     backdrop-filter: blur(10px);
     background-color: rgb(255 255 255 / 30%);
     position: fixed;
-    display: flex;
-    align-items: center;
     top: 0;
     z-index: 1;
-    justify-content: center;
 }
 
 .header__search {
     padding: 0 10px 0 10px;
     width: 300px;
+}
+
+.header-pagination {
+    position: absolute;
+    right: 20px;
 }

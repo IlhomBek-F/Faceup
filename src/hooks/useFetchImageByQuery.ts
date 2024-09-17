@@ -9,14 +9,13 @@ function useGetImageByQuery() {
         queryKey: [QUERY_KEY.PHOTOS], 
         queryFn: () => getImageByQuery(query),
         refetchOnWindowFocus: false,
+        enabled: !!query
         }
     );
 
     const handleGetByQuery = (queryData: string) => {
         query = queryData;
-        if(query.length) {
             refetch()
-        }
     }
     
     return {handleGetByQuery, imagesByQuery: data ?? [], isLoadingImagesByQuery: isFetching, error}
