@@ -18,7 +18,7 @@ function ImageLists() {
           {isLoading ? <ImagePlaceholders /> : <div className='image-container'>
              <div className='image-grid'>
                {
-                images?.map((column: any[], index: number) => {
+                images.images?.map((column: any[], index: number) => {
                     return <div className={`image-column-${index + 1}`} key={index}>
                                 { column.map((imageObj: any) => {
                                       return <img src={imageObj.urls[imageSizes.SMALL]} 

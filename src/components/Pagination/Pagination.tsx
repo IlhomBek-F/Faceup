@@ -2,7 +2,7 @@ import { Pagination as AntPagination } from 'antd';
 import { useImageContext } from '../../Context/ImageProvider';
 
 function Pagination() {
-  const {handleSearchImages} = useImageContext();
+  const {handleSearchImages, images} = useImageContext();
 
   const handlePaginationChange = (page: number) => {
     handleSearchImages({page})
@@ -13,7 +13,7 @@ function Pagination() {
       defaultCurrent={3}
       showQuickJumper={false}
       onChange={handlePaginationChange}
-      total={500}
+      total={images.total}
   />
 }
 

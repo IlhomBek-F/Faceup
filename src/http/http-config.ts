@@ -15,14 +15,15 @@ export const http = axios.create({
 http.interceptors.request.use(
     (config) => config,
     error => {
-        Promise.reject(error.response || error.message);
+        Promise.reject(error.toJSON() || error.message);
     }
 );
 
-http.interceptors.response.use((res: AxiosResponse<any, any>) => {
-    const totalImage = res.data.results?.length || res.data.length;
-    const images = res.data.results || res.data;
-   console.log(res.data)
+http.interceptors.response.use(({data}) => {
+    const resImagesLength = data.results?.length || data.length;
+    const images = data.results || data;
 
-    return normalizeResponseData(totalImage, images)as unknown as AxiosResponse<any, any>
+    return normalizeResponseData(resImagesLength, images, data.total)as unknown as AxiosResponse<any, any>
+}, error => {
+    return Promise.reject(error.toJSON())
 })
