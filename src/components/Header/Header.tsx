@@ -2,8 +2,11 @@ import { Flex, Input, Space } from 'antd';
 import '../Header/header.css';
 import { useRef } from 'react';
 import { Pagination } from '../Pagination/Pagination';
+import { useImageContext } from '../../Context/ImageProvider';
 
-function Header({handleSearch}: {handleSearch: (query: any) => void}) {
+function Header() {
+    const {handleSearchImages, isLoading} = useImageContext();
+
     const { Search } = Input;
     const inputRef = useRef(null);
 
@@ -13,8 +16,8 @@ function Header({handleSearch}: {handleSearch: (query: any) => void}) {
             <Space direction='vertical'>
               <Search placeholder="search..." className='header__search' enterButton
                ref={inputRef}
-               onPressEnter={(e) => handleSearch(e.currentTarget.value)}
-               onSearch={() => handleSearch(inputRef.current?.input.value)}
+               onPressEnter={(e) => handleSearchImages({q: e.currentTarget.value})}
+               onSearch={() => handleSearchImages({q: inputRef.current?.input.value})}
               />
             </Space>
             <div className='header-pagination'>

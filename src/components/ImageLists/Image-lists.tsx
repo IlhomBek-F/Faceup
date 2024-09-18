@@ -1,3 +1,5 @@
+import { useImageContext } from '../../Context/ImageProvider';
+import { ImagePlaceholders } from '../ImagePlaceholders/Image-placeholders';
 import './image-lists.css';
 
  enum imageSizes {
@@ -8,12 +10,15 @@ import './image-lists.css';
     SMALL_S3 = 'small_s3'
  } 
 
-function ImageLists({imageColumns}: {images: any[][]}) {
+function ImageLists() {
+    const {images, isLoading} = useImageContext();
+
     return (
-        <div className='image-container'>
+        <>
+          {isLoading ? <ImagePlaceholders /> : <div className='image-container'>
              <div className='image-grid'>
                {
-                imageColumns.map((column: any[], index: number) => {
+                images?.map((column: any[], index: number) => {
                     return <div className={`image-column-${index + 1}`} key={index}>
                                 { column.map((imageObj: any) => {
                                       return <img src={imageObj.urls[imageSizes.SMALL]} 
@@ -23,7 +28,8 @@ function ImageLists({imageColumns}: {images: any[][]}) {
                     })
                 }
           </div>
-        </div>
+        </div>} 
+        </>
     )
 }
 
