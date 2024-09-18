@@ -10,7 +10,7 @@ function useGetImageByQuery() {
         queryKey: [QUERY_KEY.PHOTOS], 
         queryFn: () => getImageByQuery(query),
         refetchOnWindowFocus: false,
-        enabled: !!query
+        enabled: !!query.q
         }
     );
 

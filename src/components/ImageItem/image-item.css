@@ -1,0 +1,21 @@
+.expand-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    color: white;
+    z-index: 111;
+    top: 10px;
+}
+
+.img {
+    width: clamp(300px, 30vw, 400px);
+    transition: all ease-in-out .3s;
+}
+
+.img:hover {
+    scale: 1.02;
+    box-shadow: -2px 2px 9px -1px rgba(76,20,77,0.7);
+    -webkit-box-shadow: -2px 2px 9px -1px rgba(76,20,77,0.7);
+    -moz-box-shadow: -2px 2px 9px -1px rgba(76,20,77,0.7);
+        transition: all ease-in-out .3s;
+}

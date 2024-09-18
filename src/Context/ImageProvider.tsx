@@ -9,7 +9,7 @@ function ImageProvider({children}: {children: ReactNode}) {
     const {contextHolder, callErrorAlert} = useMessage();
     const { data = [], error, isFetching} = useRandomImages();
     const {handleSearchImages, foundImages, isSearching, errorWhileSearching} = useGetImageByQuery();
-    const [images, setImages] = useState<typeof data>(data);
+    const [imageData, setImages] = useState<typeof data>(data);
 
     useEffect(() => {
         if((!isFetching || !isSearching) && (error || errorWhileSearching)) {
@@ -20,7 +20,7 @@ function ImageProvider({children}: {children: ReactNode}) {
 
     }, [isFetching, isSearching])
    
-    return <ImageContext.Provider value={{handleSearchImages, isLoading: (isFetching || isSearching), images}}>
+    return <ImageContext.Provider value={{handleSearchImages, isLoading: (isFetching || isSearching), imageData}}>
         {contextHolder}
         {children}
     </ImageContext.Provider>
