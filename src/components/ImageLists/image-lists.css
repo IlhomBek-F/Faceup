@@ -7,7 +7,8 @@
 }
 
 .img {
-    transition: all ease-in-out .3s;;
+    width: clamp(300px, 30vw, 400px);
+    transition: all ease-in-out .3s;
 }
 
 .img:hover {
