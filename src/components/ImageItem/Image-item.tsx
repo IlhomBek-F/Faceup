@@ -1,21 +1,22 @@
-import { DownloadOutlined, ExpandOutlined, LikeOutlined } from '@ant-design/icons';
-import { Flex } from 'antd';
-import './image-item.css';
+import { DownloadOutlined, LikeOutlined } from '@ant-design/icons';
+import { Flex , Image} from 'antd';
 import { ShareImage } from '../ShareImage/Share-image';
+import './image-item.css';
 
 function ImageItem({image, handleDownload}) {
     const {alt_description, urls, links, likes} = image;
-
+   
     return (
         <div className='image-holder'>    
                  <aside className='image-side'>
-                    <Flex vertical gap='15px'>
-                      <ExpandOutlined className='expand-icon' size={20}/>
-                      <DownloadOutlined className='download-icon' onClick={() => handleDownload(links.download_location, alt_description)}/>    
+                    <Flex vertical gap='10px'>
                       <ShareImage shareUrl={urls.small}/>
+                      <DownloadOutlined className='download-icon' onClick={() => handleDownload(links.download_location, alt_description)}/>    
                     </Flex>
-                </aside>              
-                <img src={urls.small} alt={alt_description} className='img' />
+                </aside>        
+                <Image.PreviewGroup>
+                  <Image src={urls.small} alt={alt_description}/>
+                </Image.PreviewGroup>      
                 <footer className='image-footer'>
                     <Flex align='center' gap='8px'>
                       <LikeOutlined className='like-icon' size={50}/>
