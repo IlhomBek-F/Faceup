@@ -1,6 +1,7 @@
 export enum QUERY_KEY {
     RANDOM = 'random',
-    PHOTOS = 'photos'
+    PHOTOS = 'photos',
+    DOWNLOAD = 'download'
 }
 
 export const IMAGE_COLUMN = 3;
@@ -20,4 +21,14 @@ export function normalizeResponseData(total: number, images: any, totalImage: nu
        }
 
   return imagesData 
+}
+
+export function downloadImage(blobUrl: string, imageAlt: string) {
+    const a = document.createElement('a');
+    a.href= blobUrl
+    a.download = imageAlt;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 }

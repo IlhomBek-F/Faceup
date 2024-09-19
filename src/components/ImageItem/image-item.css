@@ -1,12 +1,9 @@
 .expand-icon {
     cursor: pointer;
-    position: absolute;
-    right: 10px;
     color: var(--icon-color);
     font-size: var(--icon-size);
-    z-index: 1;
-    top: 10px;
     transition: all ease-in-out .3s;
+    z-index: 1;
 }
 
 .img {
@@ -17,6 +14,12 @@
 .image-holder {
     position: relative;
     transition: all ease-in-out .3s;
+}
+
+.image-side {
+    position: absolute;
+    right: 20px;
+    top: 10px;
 }
 
 .image-holder:hover .img {
@@ -48,4 +51,11 @@
     margin: 0;
     font: bold 15px "Fira Sans", sans-serif;
     color: var(--icon-color);
+}
+
+.download-icon {
+    font-size: var(--icon-size);
+    color: var(--icon-color);
+    z-index: 1;
+    cursor: pointer;
 }

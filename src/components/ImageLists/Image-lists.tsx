@@ -2,11 +2,16 @@ import { useImageContext } from '../../Context/ImageProvider';
 import { ImagePlaceholders } from '../ImagePlaceholders/Image-placeholders';
 import { ImageColumn } from '../ImageColumn/Image-column';
 import { ImageItem } from '../ImageItem/Image-item';
+import { getDownloadImageUrl } from '../../service';
+import { downloadImage } from '../../helper';
 import './image-lists.css';
 
 function ImageLists() {
     const {imageData, isLoading} = useImageContext();
-
+    const handleDownloadImage = (id: string, imageAlt: string) => getDownloadImageUrl(id)
+    .then((url) => downloadImage(url, imageAlt))
+    .catch(console.log)
+  
     return (
         <>
           {isLoading ? <ImagePlaceholders /> : <div className='image-container'>
@@ -14,7 +19,7 @@ function ImageLists() {
                {
                 imageData.imageColumns?.map((column: any[], index: number) => {
                     return <ImageColumn key={index} index={index}>
-                                   {column.map((imageObj: any) => <ImageItem image={imageObj} key={imageObj.id}/>)}
+                                   {column.map((imageObj: any) => <ImageItem image={imageObj} key={imageObj.id} handleDownload={handleDownloadImage}/>)}
                           </ImageColumn>
                     })
                 }

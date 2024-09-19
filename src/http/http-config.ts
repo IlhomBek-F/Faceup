@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import { normalizeResponseData } from "../helper";
 
 export const baseURL = import.meta.env.VITE_API_URL
-const apiKey = import.meta.env.VITE_API_KEY
+export const apiKey = import.meta.env.VITE_API_KEY
 
 export const http = axios.create({
     baseURL: baseURL,
@@ -20,10 +20,13 @@ http.interceptors.request.use(
 );
 
 http.interceptors.response.use(({data}) => {
+    if(data.url) return data.url;
+
     const resImagesLength = data.results?.length || data.length;
     const images = data.results || data;
-
+    
     return normalizeResponseData(resImagesLength, images, data.total)as unknown as AxiosResponse<any, any>
 }, error => {
     return Promise.reject(error.toJSON())
 })
+

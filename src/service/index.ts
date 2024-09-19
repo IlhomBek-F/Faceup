@@ -1,3 +1,4 @@
+import axios from "axios";
 import { TOTAL_IMAGE_PER_PAGE } from "../helper";
 import { baseURL, http } from "../http/http-config";
 
@@ -22,4 +23,16 @@ async function getImageByQuery(query: any) {
   }
 }
 
-export {getRandomImage, getImageByQuery}
+async function getDownloadImageUrl(imageId: string) {
+  try {
+    const resUrl = await http.get(imageId) as string;
+    const resBlob = await axios.get(resUrl, {responseType: 'blob'});
+    const downloadUrl = URL.createObjectURL(resBlob.data);
+    
+    return downloadUrl;
+  } catch (error) {
+    throw error
+  }
+}
+
+export {getRandomImage, getImageByQuery, getDownloadImageUrl}
