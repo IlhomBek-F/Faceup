@@ -5,6 +5,7 @@ import { ImageItem } from '../ImageItem/Image-item';
 import { getDownloadImageUrl } from '../../service';
 import { downloadImage } from '../../helper';
 import './image-lists.css';
+import { Empty } from 'antd';
 
 function ImageLists() {
     const {imageData, isLoading} = useImageContext();
@@ -14,7 +15,8 @@ function ImageLists() {
   
     return (
         <>
-          {isLoading ? <ImagePlaceholders /> : <div className='image-container'>
+          {isLoading ? <ImagePlaceholders /> : !imageData.imageColumns?.[0].length ? <Empty className='empty'/>
+           : <div className='image-container'>
              <div className='image-grid'>
                {
                 imageData.imageColumns?.map((column: any[], index: number) => {
