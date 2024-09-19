@@ -11,7 +11,7 @@ function Pagination() {
 
   return  <AntPagination
       showSizeChanger={false}
-      defaultCurrent={3}
+      defaultCurrent={1}
       showQuickJumper={false}
       onChange={handlePaginationChange}
       totalBoundaryShowSizeChanger={9}

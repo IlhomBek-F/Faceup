@@ -5,7 +5,7 @@ import { Pagination } from '../Pagination/Pagination';
 import { useImageContext } from '../../Context/ImageProvider';
 
 function Header() {
-    const {handleSearchImages, isLoading} = useImageContext();
+    const {handleSearchImages, imageData} = useImageContext();
 
     const { Search } = Input;
     const inputRef = useRef(null);
@@ -20,9 +20,9 @@ function Header() {
                onSearch={() => handleSearchImages({q: inputRef.current?.input.value})}
               />
             </Space>
-            <div className='header-pagination'>
+            {imageData.total > 1 && <div className='header-pagination'>
               <Pagination />
-            </div>
+            </div>}
          </Flex>
         </>
     )
