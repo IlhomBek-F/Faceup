@@ -1,16 +1,18 @@
 import { DownloadOutlined, ExpandOutlined, LikeOutlined } from '@ant-design/icons';
 import { Flex } from 'antd';
 import './image-item.css';
+import { ShareImage } from '../ShareImage/Share-image';
 
 function ImageItem({image, handleDownload}) {
     const {alt_description, urls, links, likes} = image;
 
     return (
-        <div className='image-holder'>                 
+        <div className='image-holder'>    
                  <aside className='image-side'>
                     <Flex vertical gap='15px'>
                       <ExpandOutlined className='expand-icon' size={20}/>
                       <DownloadOutlined className='download-icon' onClick={() => handleDownload(links.download_location, alt_description)}/>    
+                      <ShareImage shareUrl={urls.small}/>
                     </Flex>
                 </aside>              
                 <img src={urls.small} alt={alt_description} className='img' />
