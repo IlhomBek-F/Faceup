@@ -1,0 +1,18 @@
+.spin {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-inline: auto;
+    margin-block: auto;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    background-color: #000000ad; 
+}
+
+:where(.css-dev-only-do-not-override-qnu6hi).ant-spin .ant-spin-dot-holder {
+    color: #fff;
+}
