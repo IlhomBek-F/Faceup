@@ -1,9 +1,9 @@
 :root {
-  --main-color: linear-gradient(to right top, #d16ba5, #ca7dbe, #bf8ed3, #b39fe4, #a8afef, #a1aeee, #9aacec, #92abeb, #8c99e0, #8a87d4, #8974c5, #8960b5);
+  background: rgb(21,21,23);
+  background: linear-gradient(90deg, rgb(41, 41, 44) 0%, rgb(64, 64, 64) 34%, rgba(47,50,51,1) 100%);
   --hover-scale: 1.02;
   --icon-color: #fff;
   --icon-size: 20px;
-  background-image: var(--main-color);
   height: 100vh;
 }
 

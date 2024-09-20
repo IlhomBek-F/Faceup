@@ -2,7 +2,7 @@
     width: 100%;
     height: 70px;
     backdrop-filter: blur(10px);
-    background-color: rgb(255 255 255 / 30%);
+    background-color: rgb(0 0 0 / 30%);
     position: fixed;
     top: 0;
     z-index: 3;
@@ -16,4 +16,39 @@
 .header-pagination {
     position: absolute;
     right: 20px;
+}
+
+:where(.css-dev-only-do-not-override-qnu6hi).ant-btn-primary {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+    border: 1px solid;
+}
+
+:where(.css-dev-only-do-not-override-qnu6hi).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.114);
+}
+
+/* Below important keywords for changing Ant design library style */
+
+.header-pagination ul li a {
+    color: white !important;
+}
+
+.header-pagination ul li {
+    background-color: transparent !important;
+    border: 1px solid #fff !important;
+}
+
+:where(.css-dev-only-do-not-override-qnu6hi).ant-pagination .ant-pagination-item-active {
+    background-color: #000 !important;
+}
+
+.ant-pagination-item-ellipsis {
+    color: #fff !important;
+}
+
+.ant-pagination-item-link {
+    color: #fff !important;
 }
