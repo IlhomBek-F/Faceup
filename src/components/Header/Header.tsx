@@ -2,7 +2,7 @@ import { Flex, Input, Space } from 'antd';
 import '../Header/header.css';
 import { useRef } from 'react';
 import { Pagination } from '../Pagination/Pagination';
-import { useImageContext } from '../../Context/ImageProvider';
+import { useImageContext } from '../../context/ImageProvider';
 
 function Header() {
     const {handleSearchImages, imageData} = useImageContext();

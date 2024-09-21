@@ -1,6 +1,6 @@
-import { Header } from './components/Header/Header'
-import { ImageLists } from './components/ImageLists/Image-lists'
-import { ImageProvider } from './Context/ImageProvider';
+import { ImageLists } from '@/components/ImageLists/Image-lists'
+import { ImageProvider } from '@/context/ImageProvider';
+import { Header } from '@/components/Header/Header';
 import './App.css'
 
 function App() { 

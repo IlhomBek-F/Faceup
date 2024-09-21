@@ -1,4 +1,4 @@
-import { useImageContext } from '../../Context/ImageProvider';
+import { useImageContext } from '../../context/ImageProvider';
 import { ImagePlaceholders } from '../ImagePlaceholders/Image-placeholders';
 import { ImageColumn } from '../ImageColumn/Image-column';
 import { ImageItem } from '../ImageItem/Image-item';
