@@ -6,15 +6,3 @@
   --icon-size: 20px;
   height: 100vh;
 }
-
-.cube {
-  width: 120px;
-  height: 120px;
-  margin: 3px;
-  background-color: aqua;
-}
-
-.container {
-  overflow: auto;
-  height: 200px;
-}

@@ -2,7 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import { getImageByQuery } from "../service";
 import { QUERY_KEY } from "../helper";
 
-let query: any = {};
+export type QueryType = {
+   q: string,
+   page?: number
+}
+
+let query: QueryType = {} as QueryType;
 
 function useGetImageByQuery() {
     const { refetch, data, isFetching, error } = useQuery(
@@ -14,7 +19,7 @@ function useGetImageByQuery() {
         }
     );
 
-    const handleSearchImages = (queryData: any) => {
+    const handleSearchImages = (queryData: QueryType) => {
         query = {...query , ...queryData};
         refetch()
     }
