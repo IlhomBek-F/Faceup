@@ -1,5 +1,5 @@
 import { Pagination as AntPagination } from 'antd';
-import { useImageContext } from '../../context/ImageProvider';
+import { useImageContext } from '@context/ImageProvider';
 import { TOTAL_IMAGE_PER_PAGE } from '../../helper';
 
 function Pagination() {

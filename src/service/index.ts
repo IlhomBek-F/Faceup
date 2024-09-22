@@ -1,7 +1,7 @@
 import axios from "axios";
 import { TOTAL_IMAGE_PER_PAGE } from "../helper";
-import { baseURL, http } from "../http/http-config";
-import { QueryType } from "../hooks/useFetchImageByQuery";
+import { baseURL, http } from "@http/http-config";
+import { QueryType } from "@hooks/useFetchImageByQuery";
 
 export let downloadSignal = new AbortController()
 
