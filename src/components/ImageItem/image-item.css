@@ -6,7 +6,7 @@
     z-index: 1;
 }
 
-.img {
+:where(.css-dev-only-do-not-override-qnu6hi).ant-image .ant-image-img  {
     width: clamp(300px, 30vw, 400px);
     transition: all ease-in-out .3s;
 }

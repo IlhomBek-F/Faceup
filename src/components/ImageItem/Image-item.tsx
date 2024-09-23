@@ -1,7 +1,7 @@
 import { DownloadOutlined, LikeOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Flex, Image } from 'antd';
 import { ShareImage } from '../ShareImage/Share-image';
-import { useCallback, useState } from 'react';
+import { SyntheticEvent, useCallback, useRef, useState } from 'react';
 import { getDownloadImageUrl } from '../../service';
 import { downloadImage } from '@/helper';
 import { DownloadSpin } from '../DownloadSpin/Download-spin';
@@ -32,12 +32,12 @@ function ImageItem({ image }) {
         <aside className='image-side'>
           <Flex vertical gap='10px'>
             <ShareImage shareUrl={urls.small} />
-            <DownloadOutlined className='download-icon' onClick={handleDownloadImage} />
+            <DownloadOutlined className='download-icon download' onClick={handleDownloadImage} />
           </Flex>
         </aside>
       </>}
       <Image.PreviewGroup>
-        <Image preview={completed} src={urls.small} alt={alt_description} placeholder={
+        <Image preview={completed} src={urls.small} alt={alt_description} className='img' placeholder={
           <Blurhash
             hash={blur_hash}
             resolutionX={32}
