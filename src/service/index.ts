@@ -1,7 +1,7 @@
 import axios from "axios";
-import { TOTAL_IMAGE_PER_PAGE } from "../helper";
-import { baseURL, http } from "@http/http-config";
-import { QueryType } from "@hooks/useFetchImageByQuery";
+import { QueryType } from "@/hooks/useFetchImageByQuery";
+import { http, baseURL } from "@/http/http-config";
+import { TOTAL_IMAGE_PER_PAGE } from "@/helper";
 
 export let downloadSignal = new AbortController()
 
@@ -15,7 +15,7 @@ async function getRandomImage() {
 }
 
 async function getImageByQuery(query: QueryType) {
-  const {q = '', page = 1} = query;
+  const { q = '', page = 1 } = query;
 
   try {
     const res = await http.get(`${baseURL}search/photos/?query=${q}&page=${page}&per_page=${TOTAL_IMAGE_PER_PAGE}`);
@@ -28,10 +28,10 @@ async function getImageByQuery(query: QueryType) {
 
 async function getDownloadImageUrl(imageId: string) {
   try {
-    const resUrl = await http.get(imageId, {signal: downloadSignal.signal}) as string;
-    const resBlob = await axios.get(resUrl, {responseType: 'blob', signal: downloadSignal.signal});
+    const resUrl = await http.get(imageId, { signal: downloadSignal.signal }) as string;
+    const resBlob = await axios.get(resUrl, { responseType: 'blob', signal: downloadSignal.signal });
     const downloadUrl = URL.createObjectURL(resBlob.data);
-    
+
     return downloadUrl;
   } catch (error) {
     throw error
@@ -43,4 +43,4 @@ export function cancelRequest() {
   downloadSignal = new AbortController()
 }
 
-export {getRandomImage, getImageByQuery, getDownloadImageUrl}
+export { getRandomImage, getImageByQuery, getDownloadImageUrl }

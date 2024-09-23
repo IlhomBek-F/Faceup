@@ -1,8 +1,9 @@
 import { Flex, Input, Space } from 'antd';
-import '../Header/header.css';
 import { useRef } from 'react';
 import { Pagination } from '../Pagination/Pagination';
-import { useImageContext } from '../../Context/ImageProvider';
+import { useImageContext } from '@context/ImageProvider';
+import React from 'react';
+import './header.css';
 
 function Header() {
   const { handleSearch, imageData } = useImageContext();

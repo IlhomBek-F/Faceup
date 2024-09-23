@@ -1,7 +1,8 @@
+import React from "react";
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import { QueryType, useGetImageByQuery } from "../hooks/useFetchImageByQuery";
-import { useMessage } from "../hooks/useMessage";
-import { useRandomImages } from "../hooks/useRandomImages";
+import { QueryType, useGetImageByQuery } from "@hooks/useFetchImageByQuery";
+import { useMessage } from "@hooks/useMessage";
+import { useRandomImages } from "@hooks/useRandomImages";
 
 const ImageContext = createContext<any>({});
 
@@ -21,7 +22,7 @@ function ImageProvider({ children }: { children: ReactNode }) {
     }, [isFetching, isSearching])
 
     const handleSearch = (query: QueryType) => {
-        if (!query.q.length) {
+        if (!query.q?.length) {
             callErrorAlert('Enter query');
             return;
         }
