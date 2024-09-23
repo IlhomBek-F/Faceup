@@ -16,7 +16,7 @@ function ImageProvider({ children }: { children: ReactNode }) {
         if ((!isFetching || !isSearching) && (error || errorWhileSearching)) {
             callErrorAlert((errorWhileSearching || error)?.message || 'something went wrong')
         } else {
-            setImages(foundImages.imageColumns?.length ? foundImages : data)
+            setImages(foundImages.imageColumns?.length ? foundImages : data);
         }
 
     }, [isFetching, isSearching])

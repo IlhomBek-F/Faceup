@@ -7,7 +7,7 @@ export type QueryType = {
     page?: number
 }
 
-let query: QueryType = {} as QueryType;
+export let query: QueryType = {} as QueryType;
 
 function useGetImageByQuery() {
     const { refetch, data, isFetching, error } = useQuery(
