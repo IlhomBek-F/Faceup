@@ -8,6 +8,7 @@
 
 .image-holder {
     position: relative;
+    opacity: 0;
     transition: all ease-in-out .3s;
 }
 

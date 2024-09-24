@@ -1,13 +1,14 @@
 import { DownloadOutlined, LikeOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Flex, Image } from 'antd';
 import { ShareImage } from '../ShareImage/Share-image';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { getDownloadImageUrl } from '../../service';
 import { downloadImage } from '@/helper';
 import { DownloadSpin } from '../DownloadSpin/Download-spin';
 import { Blurhash } from 'react-blurhash';
 import React from 'react';
 import './image-item.css';
+import gsap from 'gsap';
 
 function ImageItem({ image }) {
   const { alt_description, urls, links, likes, user, blur_hash } = image;
@@ -22,7 +23,21 @@ function ImageItem({ image }) {
       .finally(() => {
         setDownloading(false)
       })
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    gsap.to('.image-holder', {
+      duration: 0.2,
+      opacity: 1,
+      ease: "sine.out",
+      delay: 0.1,
+      stagger: {
+        each: 0.1,
+        from: 'center',
+        grid: 'auto',
+      },
+    });
+  }, []);
 
   return (
     <div className='image-holder'>
