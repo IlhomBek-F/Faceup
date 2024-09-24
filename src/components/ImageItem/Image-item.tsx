@@ -9,11 +9,13 @@ import { Blurhash } from 'react-blurhash';
 import React from 'react';
 import './image-item.css';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 function ImageItem({ image }) {
   const { alt_description, urls, links, likes, user, blur_hash } = image;
   const [downloading, setDownloading] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const imageRef = useRef();
 
   const handleDownloadImage = useCallback(() => {
     setDownloading(true);
@@ -25,7 +27,7 @@ function ImageItem({ image }) {
       })
   }, []);
 
-  useEffect(() => {
+  useGSAP((context) => {
     gsap.to('.image-holder', {
       duration: 0.2,
       opacity: 1,
@@ -36,11 +38,13 @@ function ImageItem({ image }) {
         from: 'center',
         grid: 'auto',
       },
-    });
-  }, []);
+    })
+
+    console.log(context)
+  })
 
   return (
-    <div className='image-holder'>
+    <div className='image-holder' ref={imageRef}>
       {downloading && <DownloadSpin />}
       {completed && <>
         <Avatar src={user.profile_image.medium} icon={<UserOutlined />} className='avatar' />

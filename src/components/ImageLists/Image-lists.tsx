@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ImagePlaceholders } from '../ImagePlaceholders/Image-placeholders';
 import { ImageColumn } from '../ImageColumn/Image-column';
 import { ImageItem } from '../ImageItem/Image-item';
 import { Empty } from 'antd';
 import './image-lists.css';
 import { useImageContext } from '@context/ImageProvider';
-import gsap from 'gsap';
 
 function ImageLists() {
   const { imageData, isLoading } = useImageContext();
-
-
 
   return (
     <>
