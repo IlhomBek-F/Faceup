@@ -26,7 +26,6 @@ function ImageProvider({ children }: { children: ReactNode }) {
             callErrorAlert('Enter query');
             return;
         }
-
         handleSearchImages(query)
     }
 

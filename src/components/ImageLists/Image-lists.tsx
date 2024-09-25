@@ -11,7 +11,7 @@ function ImageLists() {
 
   return (
     <>
-      {isLoading ? <ImagePlaceholders /> : !imageData.imageColumns?.[0].length ? <Empty className='empty' />
+      {true ? <ImagePlaceholders /> : !imageData.imageColumns?.[0].length ? <Empty className='empty' />
         : <div className='image-container'>
           <div className='image-grid'>
             {

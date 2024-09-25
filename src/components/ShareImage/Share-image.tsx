@@ -4,6 +4,7 @@ import './share-image.css'
 import React from "react";
 
 function ShareImage({ shareUrl }: { shareUrl: string }) {
+
   return (
     <Flex vertical style={{ zIndex: 2 }}>
       <LinkedinShareButton className="share in" children={<LinkedinIcon />} url={shareUrl} />
