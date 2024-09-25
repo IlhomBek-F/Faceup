@@ -1,15 +1,15 @@
 import { DownloadOutlined, LikeOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Flex, Image } from 'antd';
 import { ShareImage } from '../ShareImage/Share-image';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { getDownloadImageUrl } from '../../service';
 import { downloadImage } from '@/helper';
 import { DownloadSpin } from '../DownloadSpin/Download-spin';
 import { Blurhash } from 'react-blurhash';
 import React from 'react';
-import './image-item.css';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import './image-item.css';
 
 function ImageItem({ image }) {
   const { alt_description, urls, links, likes, user, blur_hash } = image;
@@ -39,8 +39,6 @@ function ImageItem({ image }) {
         grid: 'auto',
       },
     })
-
-    console.log(context)
   })
 
   return (
@@ -56,7 +54,7 @@ function ImageItem({ image }) {
         </aside>
       </>}
       <Image.PreviewGroup>
-        <Image preview={completed} src={urls.small} alt={alt_description} placeholder={
+        <Image preview={completed} src={urls.small} alt={alt_description} placeholder={blur_hash?.length &&
           <Blurhash
             hash={blur_hash}
             resolutionX={32}
