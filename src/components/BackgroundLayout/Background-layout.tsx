@@ -11,7 +11,7 @@ function BackgroundLayout({ children }) {
                     return <div className="wrapper" style={{ zIndex: 4 }} key={index}>
                         {BACKGROUND_LAYOUT_IMAGES[index + 1].map((imageUrl: string, imageIndex: number) => {
                             return <div className={`${className} item${imageIndex + 1}`} key={imageIndex}>
-                                <img className="img" src={imageUrl} />
+                                <img className="img" src={imageUrl} alt="layout image" />
                             </div>
                         })}
 

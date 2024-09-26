@@ -2,7 +2,7 @@
 .image-container {
     display: grid;
     grid-template-columns: minmax(100px, 1245px);
-    margin: 99px auto;
+    margin: 0 auto;
     width: fit-content;
 }
 
@@ -12,8 +12,4 @@
     position: absolute;
     z-index: 4;
     column-gap: 14px;
-}
-
-.empty {
-    margin-top: 116px;
 }

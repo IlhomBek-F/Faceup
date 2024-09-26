@@ -2,16 +2,16 @@ import React from 'react';
 import { ImagePlaceholders } from '../ImagePlaceholders/Image-placeholders';
 import { ImageColumn } from '../ImageColumn/Image-column';
 import { ImageItem } from '../ImageItem/Image-item';
-import { Empty } from 'antd';
 import { useImageContext } from '@context/ImageProvider';
 import './image-lists.css';
+import { NotFoundImage } from '../NotFoundImage/Not-found-image';
 
 function ImageLists() {
   const { imageData, isLoading } = useImageContext();
 
   return (
     <>
-      {isLoading ? <ImagePlaceholders /> : !imageData.imageColumns?.[0].length ? <Empty className='empty' />
+      {isLoading ? <ImagePlaceholders /> : !imageData.imageColumns?.[0].length ? <NotFoundImage />
         : <div className='image-container'>
           <div className='image-grid'>
             {
