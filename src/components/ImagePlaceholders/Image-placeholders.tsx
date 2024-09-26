@@ -6,7 +6,7 @@ function ImagePlaceholders() {
 
     return (
         <div className="image-container">
-            <div className='image-grid'>
+            <div className='image-grid-placeholder'>
                 <div className='image-column-1'>
                     <Skeleton.Image active style={{ width: '400px', height: '400px' }} />
                     <Skeleton.Image active style={{ width: '400px', height: '400px' }} />
