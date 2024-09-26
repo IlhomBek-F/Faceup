@@ -13,7 +13,6 @@ function App() {
         <ImageLists />
       </ImageProvider>
     </BackgroundLayout>
-
   )
 }
 

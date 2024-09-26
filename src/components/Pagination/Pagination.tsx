@@ -2,10 +2,9 @@ import React from 'react';
 import { Pagination as AntPagination } from 'antd';
 import { TOTAL_IMAGE_PER_PAGE } from '../../utils/helper';
 import { useImageContext } from '@context/ImageProvider';
-import { query } from '@hooks/useFetchImageByQuery';
 
 function Pagination() {
-  const { handleSearch, imageData } = useImageContext();
+  const { handleSearch, imageData, query } = useImageContext();
 
   const handlePaginationChange = (page: number) => {
     handleSearch({ ...query, page })
@@ -13,7 +12,7 @@ function Pagination() {
 
   return <AntPagination
     showSizeChanger={false}
-    defaultCurrent={1}
+    defaultCurrent={query.page}
     showQuickJumper={false}
     onChange={handlePaginationChange}
     totalBoundaryShowSizeChanger={9}

@@ -14,18 +14,6 @@
   height: 392px;
 }
 
-@keyframes scrollLeft {
-  to {
-    left: -200px;
-  }
-}
-
-@keyframes scrollRight {
-  to {
-    right: -200px;
-  }
-}
-
 .img {
   width: 100%;
   object-fit: cover;
@@ -84,4 +72,16 @@
 
 .item8 {
   animation-delay: calc(90s / 8 * (8 - 8) * -1);
+}
+
+@keyframes scrollLeft {
+  to {
+    left: -200px;
+  }
+}
+
+@keyframes scrollRight {
+  to {
+    right: -200px;
+  }
 }
