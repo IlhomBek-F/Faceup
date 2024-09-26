@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getImageByQuery, getRandomImage } from "../service";
-import { QUERY_KEY } from "../helper";
+import { getImageByQuery } from "../service";
+import { QUERY_KEY } from "../utils/helper";
 
 export function useRandomImages() {
     const { status, data, error, isFetching } = useQuery({

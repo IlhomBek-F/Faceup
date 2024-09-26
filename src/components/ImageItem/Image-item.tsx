@@ -3,7 +3,7 @@ import { Avatar, Flex, Image } from 'antd';
 import { ShareImage } from '../ShareImage/Share-image';
 import { useCallback, useRef, useState } from 'react';
 import { getDownloadImageUrl } from '../../service';
-import { downloadImage } from '@/helper';
+import { downloadImage } from '../../utils/helper';
 import { DownloadSpin } from '../DownloadSpin/Download-spin';
 import { Blurhash } from 'react-blurhash';
 import React from 'react';

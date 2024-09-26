@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pagination as AntPagination } from 'antd';
-import { TOTAL_IMAGE_PER_PAGE } from '@/helper';
+import { TOTAL_IMAGE_PER_PAGE } from '../../utils/helper';
 import { useImageContext } from '@context/ImageProvider';
 import { query } from '@hooks/useFetchImageByQuery';
 

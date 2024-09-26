@@ -1,13 +1,11 @@
 import axios, { AxiosResponse } from "axios";
-import { normalizeResponseData } from "@/helper";
-
-export const baseURL = import.meta.env.VITE_API_URL
-export const apiKey = import.meta.env.VITE_API_KEY
+import { normalizeResponseData } from "../utils/helper";
+import { API_KEY, BASE_API_URL } from "@/utils/constant";
 
 export const http = axios.create({
-    baseURL: baseURL,
+    baseURL: BASE_API_URL,
     headers: {
-        Authorization: `Client-ID ${apiKey}`,
+        Authorization: `Client-ID ${API_KEY}`,
         'Accept-Version': 'v1',
     }
 })

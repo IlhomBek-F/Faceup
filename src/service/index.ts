@@ -1,13 +1,14 @@
 import axios from "axios";
 import { QueryType } from "@/hooks/useFetchImageByQuery";
-import { http, baseURL } from "@/http/http-config";
-import { TOTAL_IMAGE_PER_PAGE } from "@/helper";
+import { http } from "@/http/http-config";
+import { TOTAL_IMAGE_PER_PAGE } from "../utils/helper";
+import { BASE_API_URL } from "@/utils/constant";
 
 export let downloadSignal = new AbortController()
 
 async function getRandomImage() {
   try {
-    const res = await http.get(`${baseURL}/photos?per_page=${TOTAL_IMAGE_PER_PAGE}`);
+    const res = await http.get(`${BASE_API_URL}/photos?per_page=${TOTAL_IMAGE_PER_PAGE}`);
     return res
   } catch (error) {
     throw error
@@ -18,7 +19,7 @@ async function getImageByQuery(query: QueryType) {
   const { q = '', page = 1 } = query;
 
   try {
-    const res = await http.get(`${baseURL}search/photos/?query=${q}&page=${page}&per_page=${TOTAL_IMAGE_PER_PAGE}`);
+    const res = await http.get(`${BASE_API_URL}search/photos/?query=${q}&page=${page}&per_page=${TOTAL_IMAGE_PER_PAGE}`);
 
     return res
   } catch (error) {
