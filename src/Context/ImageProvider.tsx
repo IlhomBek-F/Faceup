@@ -15,14 +15,13 @@ function ImageProvider({ children }: { children: ReactNode }) {
 
     const isFailed = !isSuccessRandom && error || !isSearchSuccess && errorWhileSearching && query.q.length;
 
-
     useEffect(() => {
         if (isFailed) {
             callErrorAlert((errorWhileSearching || error)?.message || 'something went wrong');
-            return;
+        } else {
+            setImages(foundImages.imageColumns?.[0]?.length ? foundImages : data);
         }
 
-        setImages(() => foundImages.imageColumns?.[0]?.length ? foundImages : data);
     }, [isLoading, isSearching])
 
     const handleSearch = (queryData?: QueryType) => {
@@ -32,13 +31,9 @@ function ImageProvider({ children }: { children: ReactNode }) {
         };
 
         if (query.page === queryData.page && query.q === queryData.q) return;
-
-        if (query.q !== queryData.q) {
-            queryData = { ...queryData, page: 1 }
-        }
-
+        const updatedQueryData = query.q !== queryData.q ? { ...queryData, page: 1 } : queryData
         data.imageColumns = [];
-        setQuery(queryData);
+        setQuery(updatedQueryData);
         handleSearchImages(queryData)
     }
 
