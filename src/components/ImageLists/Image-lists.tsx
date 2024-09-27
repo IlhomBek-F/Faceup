@@ -3,24 +3,27 @@ import { ImagePlaceholders } from '../ImagePlaceholders/Image-placeholders';
 import { ImageColumn } from '../ImageColumn/Image-column';
 import { ImageItem } from '../ImageItem/Image-item';
 import { useImageContext } from '@context/ImageProvider';
-import './image-lists.css';
 import { NotFoundImage } from '../NotFoundImage/Not-found-image';
+import './image-lists.css';
 
 function ImageLists() {
   const { imageData, isLoading } = useImageContext();
+  const [firstColumns, secondColumns, thirdColumns] = imageData?.imageColumns || [];
 
   return (
     <>
-      {isLoading ? <ImagePlaceholders /> : !imageData.imageColumns?.[0]?.length ? <NotFoundImage />
+      {isLoading ? <ImagePlaceholders /> : (!isLoading && !firstColumns?.length) ? <NotFoundImage />
         : <div className='image-container'>
           <div className='image-grid'>
-            {
-              imageData.imageColumns?.map((column: any[], index: number) => {
-                return <ImageColumn key={index} index={index}>
-                  {column.map((imageObj: any) => <ImageItem image={imageObj} key={imageObj.id} />)}
-                </ImageColumn>
-              })
-            }
+            <ImageColumn index={0}>
+              {firstColumns.map((image) => <ImageItem image={image} key={image.id} />)}
+            </ImageColumn>
+            <ImageColumn index={1}>
+              {secondColumns.map((image) => <ImageItem image={image} key={image.id} />)}
+            </ImageColumn>
+            <ImageColumn index={2}>
+              {thirdColumns.map((image) => <ImageItem image={image} key={image.id} />)}
+            </ImageColumn>
           </div>
         </div>}
     </>

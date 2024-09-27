@@ -1,13 +1,17 @@
 import { Flex, Input, Space } from 'antd';
 import { Pagination } from '../Pagination/Pagination';
 import { useImageContext } from '@context/ImageProvider';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './header.css';
 
 function Header() {
   const { handleSearch, imageData, query } = useImageContext();
   const { Search } = Input;
-  const [value, setValue] = useState<string>();
+  const [value, setValue] = useState<string>(query.q);
+
+  useEffect(() => {
+    setValue(query.q)
+  }, [query.q])
 
   return (
     <>
