@@ -6,9 +6,6 @@ export const http = axios.create({
     baseURL: BASE_API_URL,
     headers: {
         Authorization: `Client-ID ${API_KEY}`,
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache',
-        'Expires': '0'
     }
 })
 
