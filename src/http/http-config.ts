@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import { normalizeResponseData } from "../utils/helper";
 import { API_KEY, BASE_API_URL } from "@/utils/constant";
 
@@ -6,7 +6,9 @@ export const http = axios.create({
     baseURL: BASE_API_URL,
     headers: {
         Authorization: `Client-ID ${API_KEY}`,
-        'Accept-Version': 'v1',
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
     }
 })
 
@@ -22,6 +24,10 @@ http.interceptors.response.use(({ data }) => {
 
     const resImagesLength = data.results?.length || data.length;
     const images = data.results || data;
+
+    if (data.results && !data.total) {
+        throw new AxiosError('Image not found', '404');;
+    }
 
     return normalizeResponseData(resImagesLength, images, data.total) as unknown as AxiosResponse<any, any>
 }, error => {

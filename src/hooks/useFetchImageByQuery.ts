@@ -10,7 +10,7 @@ export type QueryType = {
 export let query: QueryType = {} as QueryType;
 
 function useGetImageByQuery() {
-    const { refetch, data, isFetching, error } = useQuery(
+    const { refetch, data, isFetching, error, isSuccess } = useQuery(
         {
             queryKey: [QUERY_KEY.PHOTOS],
             queryFn: () => getImageByQuery(query),
@@ -24,7 +24,7 @@ function useGetImageByQuery() {
         refetch()
     }
 
-    return { handleSearchImages, foundImages: data ?? [], isSearching: isFetching, errorWhileSearching: error }
+    return { handleSearchImages, foundImages: data ?? [], isSearching: isFetching, errorWhileSearching: error, isSearchSuccess: isSuccess }
 }
 
 export { useGetImageByQuery }

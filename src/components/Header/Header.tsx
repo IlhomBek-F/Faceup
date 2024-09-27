@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import './header.css';
 
 function Header() {
-  const { handleSearch, imageData, query } = useImageContext();
+  const { handleSearch, handleBackHome, imageData, query } = useImageContext();
   const { Search } = Input;
   const [value, setValue] = useState<string>(query.q);
 
@@ -19,6 +19,8 @@ function Header() {
         <Space direction='vertical'>
           <Search placeholder="search..." className='header__search' enterButton
             value={value}
+            allowClear
+            onClear={handleBackHome}
             onChange={(e) => setValue(e.target.value)}
             onPressEnter={(e) => handleSearch({ q: value, page: query.page })}
             onSearch={() => handleSearch({ q: value, page: query.page })}
