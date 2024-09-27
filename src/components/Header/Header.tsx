@@ -7,7 +7,7 @@ import './header.css';
 function Header() {
   const { handleSearch, handleBackHome, imageData, query } = useImageContext();
   const { Search } = Input;
-  const [value, setValue] = useState<string>(query.q);
+  const [value, setValue] = useState<string>(query?.q);
 
   useEffect(() => {
     setValue(query.q)
