@@ -4,7 +4,7 @@ import { http } from "@/http/http-config";
 import { TOTAL_IMAGE_PER_PAGE } from "../utils/helper";
 import { BASE_API_URL } from "@/utils/constant";
 
-export let downloadSignal = new AbortController()
+let downloadSignal = new AbortController()
 
 async function getRandomImage() {
   try {
