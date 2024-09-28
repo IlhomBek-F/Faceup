@@ -16,7 +16,6 @@ async function getRandomImage() {
 }
 
 async function getImageByQuery({q = '', page = 1}: QueryType) {
-
   try {
     const res = await http.get(`${BASE_API_URL}search/photos/?query=${q}&page=${page}&per_page=${TOTAL_IMAGE_PER_PAGE}`);
 
