@@ -1,25 +1,59 @@
+import React from "react";
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import { useRandomImages } from "@hooks/useRandomImages";
+import { useGetImageByQuery, QueryType } from "@hooks/useFetchImageByQuery";
 import { useMessage } from "@hooks/useMessage";
-import { useGetImageByQuery } from "@hooks/useFetchImageByQuery";
-const ImageContext = createContext<any>(null);
+import { useRandomImages } from "@hooks/useRandomImages";
 
-function ImageProvider({children}: {children: ReactNode}) {
-    const {contextHolder, callErrorAlert} = useMessage();
-    const { data = [], error, isFetching} = useRandomImages();
-    const {handleSearchImages, foundImages, isSearching, errorWhileSearching} = useGetImageByQuery();
+const ImageContext = createContext<any>({});
+
+function ImageProvider({ children }: { children: ReactNode }) {
+    const [query, setQuery] = useState({ q: '', page: 1 });
+    const { contextHolder, callErrorAlert } = useMessage();
+    let { data = [], error, isLoading, refetch, isSuccess: isSuccessRandom } = useRandomImages();
     const [imageData, setImages] = useState<typeof data>(data);
+    let { handleSearchImages, foundImages, isSearching, errorWhileSearching, isSearchSuccess } = useGetImageByQuery();
+
+    const isFailed = !isSuccessRandom && error || !isSearchSuccess && errorWhileSearching && query.q.length;
 
     useEffect(() => {
-        if((!isFetching || !isSearching) && (error || errorWhileSearching)) {
-           callErrorAlert((errorWhileSearching || error)?.message || 'something went wrong')
-        }else {
-            setImages(foundImages.imageColumns?.length ? foundImages : data)
+        if (isFailed) {
+            callErrorAlert((errorWhileSearching || error)?.message || 'something went wrong');
+        } else {
+            setImages(foundImages.imageColumns?.[0]?.length ? foundImages : data);
         }
 
-    }, [isFetching, isSearching])
-   
-    return <ImageContext.Provider value={{handleSearchImages, isLoading: (isFetching || isSearching), imageData}}>
+    }, [isLoading, isSearching])
+
+    const handleSearch = (queryData?: QueryType) => {
+        if (!queryData.q?.length) {
+            callErrorAlert('Enter query');
+            return;
+        };
+
+        if (query.page === queryData.page && query.q === queryData.q) return;
+        const updatedQueryData = query.q !== queryData.q ? { ...queryData, page: 1 } : queryData
+        data.imageColumns = [];
+        setQuery(updatedQueryData);
+        handleSearchImages(queryData)
+    }
+
+    const handleBackHome = () => {
+        foundImages.imageColumns = [];
+        setQuery({ q: '', page: 1 });
+        refetch();
+    }
+
+    const contextData = {
+        handleSearch,
+        handleBackHome,
+        setQuery,
+        query,
+        imageData,
+        isLoading: (isSearching || isLoading),
+        error: (errorWhileSearching || error)
+    }
+
+    return <ImageContext.Provider value={contextData}>
         {contextHolder}
         {children}
     </ImageContext.Provider>
@@ -27,4 +61,4 @@ function ImageProvider({children}: {children: ReactNode}) {
 
 const useImageContext = () => useContext(ImageContext);
 
-export {ImageProvider, useImageContext}
+export { ImageProvider, useImageContext }

@@ -1,29 +1,36 @@
-import { useImageContext } from '../../context/ImageProvider';
+import React from 'react';
 import { ImagePlaceholders } from '../ImagePlaceholders/Image-placeholders';
 import { ImageColumn } from '../ImageColumn/Image-column';
 import { ImageItem } from '../ImageItem/Image-item';
-import { Empty } from 'antd';
+import { useImageContext } from '@context/ImageProvider';
+import { NotFoundImage } from '../NotFoundImage/Not-found-image';
 import './image-lists.css';
 
 function ImageLists() {
-    const {imageData, isLoading} = useImageContext();
+  const { imageData, isLoading, error, query } = useImageContext();
+  const [firstColumns, secondColumns, thirdColumns] = imageData?.imageColumns || [];
 
-    return (
-        <>
-          {isLoading ? <ImagePlaceholders /> : !imageData.imageColumns?.[0].length ? <Empty className='empty'/>
-           : <div className='image-container'>
-             <div className='image-grid'>
-               {
-                imageData.imageColumns?.map((column: any[], index: number) => {
-                    return <ImageColumn key={index} index={index}>
-                                   {column.map((imageObj: any) => <ImageItem image={imageObj} key={imageObj.id}/>)}
-                          </ImageColumn>
-                    })
-                }
-          </div>
-        </div>} 
-        </>
-    )
+  if (!isLoading && error?.code === '404' && query.q.length) {
+    return <NotFoundImage />
+  }
+
+  return (
+    <>
+      {isLoading ? <ImagePlaceholders /> : <div className='image-container'>
+        <div className='image-grid'>
+          <ImageColumn index={0}>
+            {firstColumns?.map((image) => <ImageItem image={image} key={image.id} />)}
+          </ImageColumn>
+          <ImageColumn index={1}>
+            {secondColumns?.map((image) => <ImageItem image={image} key={image.id} />)}
+          </ImageColumn>
+          <ImageColumn index={2}>
+            {thirdColumns?.map((image) => <ImageItem image={image} key={image.id} />)}
+          </ImageColumn>
+        </div>
+      </div>}
+    </>
+  )
 }
 
-export {ImageLists}
+export { ImageLists }

@@ -1,14 +1,11 @@
-import axios, { AxiosResponse } from "axios";
-import { normalizeResponseData } from "../helper";
-
-export const baseURL = import.meta.env.VITE_API_URL
-export const apiKey = import.meta.env.VITE_API_KEY
+import axios, { AxiosError, AxiosResponse } from "axios";
+import { normalizeResponseData } from "../utils/helper";
+import { API_KEY, BASE_API_URL } from "@/utils/constant";
 
 export const http = axios.create({
-    baseURL: baseURL,
+    baseURL: BASE_API_URL,
     headers: {
-        Authorization: `Client-ID ${apiKey}`,
-        'Accept-Version': 'v1',
+        Authorization: `Client-ID ${API_KEY}`,
     }
 })
 
@@ -19,15 +16,19 @@ http.interceptors.request.use(
     }
 );
 
-http.interceptors.response.use(({data}) => {
-    if(data.url) return data.url;
+http.interceptors.response.use(({ data }) => {
+    if (data.url) return data.url;
 
     const resImagesLength = data.results?.length || data.length;
     const images = data.results || data;
-    
-    return normalizeResponseData(resImagesLength, images, data.total)as unknown as AxiosResponse<any, any>
+
+    if (data.results && !data.total) {
+        throw new AxiosError('Image not found', '404');;
+    }
+
+    return normalizeResponseData(resImagesLength, images, data.total) as unknown as AxiosResponse<any, any>
 }, error => {
-    const backendErrorMessage = error.response?.data.errors.join(' ') || 'An unknown error occurred';
+    const backendErrorMessage = error.response?.data.errors?.join(' ') || 'An unknown error occurred';
     // Optionally, reject with a more specific error message
     return Promise.reject(new Error(backendErrorMessage));
 })

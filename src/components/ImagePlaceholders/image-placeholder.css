@@ -6,3 +6,12 @@
     gap: 10px;
     margin-top: 93px;
 }
+
+.image-grid-placeholder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: absolute;
+    z-index: 4;
+    column-gap: 14px;
+    background: linear-gradient(90deg, rgb(41, 41, 44) 0%, rgb(64, 64, 64) 34%, rgba(47, 50, 51, 1) 100%);
+}

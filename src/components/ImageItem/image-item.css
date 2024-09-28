@@ -6,13 +6,9 @@
     z-index: 1;
 }
 
-.img {
-    width: clamp(300px, 30vw, 400px);
-    transition: all ease-in-out .3s;
-}
-
 .image-holder {
     position: relative;
+    opacity: 0;
     transition: all ease-in-out .3s;
 }
 
@@ -20,14 +16,6 @@
     position: absolute;
     right: 20px;
     top: 10px;
-}
-
-.image-holder:hover .img {
-    transform: scale(var(--hover-scale)); /* Correct usage of scale */
-    box-shadow: -2px 2px 9px -1px rgba(76,20,77,0.7);
-    -webkit-box-shadow: -2px 2px 9px -1px rgba(76,20,77,0.7);
-    -moz-box-shadow: -2px 2px 9px -1px rgba(76,20,77,0.7);
-    transition: all ease-in-out .3s;
 }
 
 .image-holder:hover .expand-icon svg {

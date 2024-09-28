@@ -9,3 +9,54 @@
     transform: scale(1.2);
     transition: transform ease-in-out .1s;
 }
+
+.in ,.email, .telegram, .meta, .whatsapp, .download {
+    opacity: 0;
+    animation: fadeIn linear forwards;
+}
+
+.in {
+    animation-duration: .3s;
+    animation-delay: 0.1s; 
+}
+
+.email {
+    animation-duration: .4s;
+    animation-delay: 0.5s;
+}
+
+.telegram {
+    animation-duration: .5s;
+    animation-delay: 0.8s;
+}
+
+.meta {
+    animation-duration: .6s;
+    animation-delay: 1.1s;
+}
+
+.whatsapp {
+    animation-duration: .7s;
+    animation-delay: 1.4s;
+}
+
+.download {
+    animation-duration: .8s;
+    animation-delay: 1.7s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        scale: 1.2;
+        opacity: 0.7;
+    }
+
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}

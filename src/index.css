@@ -1,8 +1,13 @@
 :root {
   background: rgb(21,21,23);
-  background: linear-gradient(90deg, rgb(41, 41, 44) 0%, rgb(64, 64, 64) 34%, rgba(47,50,51,1) 100%);
+  --background: linear-gradient(90deg, rgb(41, 41, 44) 0%, rgb(64, 64, 64) 34%, rgba(47,50,51,1) 100%);
+  background: var(--background);
   --hover-scale: 1.02;
   --icon-color: #fff;
   --icon-size: 20px;
   height: 100vh;
+}
+
+body {
+  margin: 100px 0 0 0;
 }
