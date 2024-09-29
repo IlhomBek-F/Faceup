@@ -4,13 +4,14 @@ import { ImageColumn } from '../ImageColumn/Image-column';
 import { ImageItem } from '../ImageItem/Image-item';
 import { useImageContext } from '@context/ImageProvider';
 import { NotFoundImage } from '../NotFoundImage/Not-found-image';
+import { STATUS_CODE } from '../../http/http-config';
 import './image-lists.css';
 
 function ImageLists() {
   const { imageData, isLoading, error, query } = useImageContext();
   const [firstColumns, secondColumns, thirdColumns] = imageData?.imageColumns || [];
 
-  if (!isLoading && error?.code === '404' && query.q.length) {
+  if (!isLoading && error?.code === STATUS_CODE.NOT_FOUND && query.q.length) {
     return <NotFoundImage />
   }
 

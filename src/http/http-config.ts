@@ -2,6 +2,10 @@ import axios, { AxiosError, AxiosResponse } from "axios";
 import { normalizeResponseData } from "../utils/helper";
 import { API_KEY, BASE_API_URL } from "@/utils/constant";
 
+export enum STATUS_CODE {
+    NOT_FOUND = '404'
+}
+
 export const http = axios.create({
     baseURL: BASE_API_URL,
     headers: {
@@ -23,7 +27,7 @@ http.interceptors.response.use(({ data }) => {
     const images = data.results || data;
 
     if (data.results && !data.total) {
-        throw new AxiosError('Image not found', '404');;
+        throw new AxiosError('Image not found', STATUS_CODE.NOT_FOUND);;
     }
 
     return normalizeResponseData(resImagesLength, images, data.total) as unknown as AxiosResponse<any, any>
