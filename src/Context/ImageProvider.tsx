@@ -4,7 +4,7 @@ import { useGetImageByQuery, QueryType } from "@hooks/useFetchImageByQuery";
 import { useMessage } from "@hooks/useMessage";
 import { useRandomImages } from "@hooks/useRandomImages";
 
-const ImageContext = createContext<any>({});
+const ImageContext = createContext({});
 
 function ImageProvider({ children }: { children: ReactNode }) {
     const [query, setQuery] = useState({ q: '', page: 1 });
