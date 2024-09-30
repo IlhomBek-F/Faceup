@@ -54,7 +54,7 @@
 }
 
 @media screen and (max-width: 500px) {
-    :where(.css-dev-only-do-not-override-qnu6hi).ant-input-group >.ant-input-affix-wrapper:not(:last-child) .ant-input {
+     .ant-input {
         font-size: 16px;
     }
 
