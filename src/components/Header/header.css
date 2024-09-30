@@ -54,8 +54,8 @@
 }
 
 @media screen and (max-width: 500px) {
-     .ant-input {
-        font-size: 16px;
+    .ant-input {
+        font-size: 16px !important;
     }
 
   .header-pagination {
