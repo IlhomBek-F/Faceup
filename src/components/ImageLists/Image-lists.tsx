@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { ImagePlaceholders } from '../ImagePlaceholders/Image-placeholders';
 import { ImageColumn } from '../ImageColumn/Image-column';
 import { ImageItem } from '../ImageItem/Image-item';
@@ -6,6 +6,7 @@ import { useImageContext } from '@context/ImageProvider';
 import { NotFoundImage } from '../NotFoundImage/Not-found-image';
 import { STATUS_CODE } from '../../http/http-config';
 import './image-lists.css';
+import Footer from '../Footer/Footer';
 
 function ImageLists() {
   const { imageData, isLoading, error, query } = useImageContext();
@@ -28,6 +29,7 @@ function ImageLists() {
           <ImageColumn index={2}>
             {thirdColumns?.map((image) => <ImageItem image={image} key={image.id} />)}
           </ImageColumn>
+          <Footer />
         </div>
       </div>}
     </>

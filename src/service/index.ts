@@ -15,9 +15,9 @@ async function getRandomImage() {
   }
 }
 
-async function getImageByQuery({q = '', page = 1}: QueryType) {
+async function getImageByQuery({ q = '', page = 1, limit = TOTAL_IMAGE_PER_PAGE }: QueryType) {
   try {
-    const res = await http.get(`${BASE_API_URL}search/photos/?query=${q}&page=${page}&per_page=${TOTAL_IMAGE_PER_PAGE}`);
+    const res = await http.get(`${BASE_API_URL}search/photos/?query=${q}&page=${page}&per_page=${limit}`);
 
     return res
   } catch (error) {

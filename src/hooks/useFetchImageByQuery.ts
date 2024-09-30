@@ -4,7 +4,8 @@ import { QUERY_KEY } from "../utils/helper";
 
 export type QueryType = {
     q: string,
-    page?: number
+    page?: number,
+    limit?: number
 }
 
 export let query: QueryType = {} as QueryType;
