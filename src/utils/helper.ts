@@ -13,7 +13,7 @@ export function normalizeResponseData(total: number, images: any, totalImage: nu
     let [start, end] = [0, imageCount];
 
     for (let i = 0; i < IMAGE_COLUMN; i++) {
-        imagesData.imageColumns.push(images.slice(start, end));
+        (imagesData.imageColumns as any).push(images.slice(start, end));
         start += imageCount;
         end += imageCount
     }
