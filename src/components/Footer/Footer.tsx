@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import './footer.css';
 import { Button } from "antd";
 import { useImageContext } from "../../context/ImageProvider";
-import { getImageByQuery } from "../../service";
 
 export default function Footer() {
     const { loadMore, loadingMore } = useImageContext()

@@ -3,4 +3,11 @@
     position: absolute;
     z-index: 5;
     bottom: 0;
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .footer {
+        display: flex;
+    }
 }
