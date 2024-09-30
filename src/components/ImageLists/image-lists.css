@@ -13,3 +13,20 @@
     z-index: 4;
     column-gap: 14px;
 }
+
+@media screen and (max-width: 500px) {
+
+    .image-container {
+       display: flex;
+       justify-content: center;
+    }
+
+    .image-grid {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       position: absolute;
+       z-index: 4;
+       flex-direction: column;
+    }
+}
