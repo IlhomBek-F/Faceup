@@ -1,14 +1,16 @@
-import React, { useContext } from "react"
-import './footer.css';
+import React from "react"
 import { Button } from "antd";
 import { useImageContext } from "../../context/ImageProvider";
+import './show-more.css';
 
-export default function Footer() {
+function ShowMoreAction() {
     const { loadMore, loadingMore } = useImageContext()
 
     return (
-        <div className="footer">
+        <footer className="footer">
             <Button type="dashed" onClick={loadMore} loading={loadingMore}>Show more</Button>
-        </div>
+        </footer>
     )
 }
+
+export { ShowMoreAction }

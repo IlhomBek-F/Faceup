@@ -30,7 +30,7 @@ http.interceptors.response.use(({ data }) => {
         throw new AxiosError('Image not found', STATUS_CODE.NOT_FOUND);;
     }
 
-    return normalizeResponseData(resImagesLength, images, data.total) as unknown as AxiosResponse<any, any>
+    return normalizeResponseData(resImagesLength, images, data.total, data.total_pages) as unknown as AxiosResponse<any, any>
 }, error => {
     const backendErrorMessage = error.response?.data.errors?.join(' ') || 'An unknown error occurred';
     // Optionally, reject with a more specific error message

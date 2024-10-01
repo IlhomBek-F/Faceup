@@ -7,8 +7,8 @@ export enum QUERY_KEY {
 export const IMAGE_COLUMN = 3;
 export const TOTAL_IMAGE_PER_PAGE = 30;
 
-export function normalizeResponseData(total: number, images: any, totalImage: number) {
-    const imagesData = { imageColumns: [], total: totalImage };
+export function normalizeResponseData(total: number, images: any, totalImage: number, total_page: number) {
+    const imagesData = { imageColumns: [], total: totalImage, total_page };
     const imageCount = Math.round(total / IMAGE_COLUMN);
     let [start, end] = [0, imageCount];
 
