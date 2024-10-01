@@ -9,5 +9,6 @@
 @media screen and (max-width: 500px) {
     .footer {
         display: flex;
+        bottom: 5px;
     }
 }

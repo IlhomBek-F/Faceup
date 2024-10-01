@@ -4,6 +4,7 @@ import { ImageLists } from '@components/ImageLists/Image-lists';
 import { ImageProvider } from '@context/ImageProvider';
 import { BackgroundLayout } from '@components/BackgroundLayout/Background-layout';
 import '@/App.css'
+import { UpAction } from './components/UpAction/Up-action';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <ImageProvider>
         <Header />
         <ImageLists />
+        <UpAction />
       </ImageProvider>
     </BackgroundLayout>
   )

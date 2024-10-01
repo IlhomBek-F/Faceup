@@ -49,7 +49,7 @@ function ImageProvider({ children }: { children: ReactNode }) {
     const loadMore = () => {
         setQuery({ ...query, page: query.page + 1 });
         setLoading(true)
-        getImageByQuery({ ...query, page: query.page + 1, limit: 10 })
+        getImageByQuery({ ...query, page: query.page + 1 })
             .then((res) => {
                 const [firstColumn, secondColumn, thirdColumn] = res.imageColumns;
                 setImages((prev) => {
