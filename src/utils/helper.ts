@@ -4,10 +4,16 @@ export enum QUERY_KEY {
     DOWNLOAD = 'download'
 }
 
+export type ResponseType = {
+    imageColumns: unknown[],
+    total: number,
+    total_page: number
+}
+
 export const IMAGE_COLUMN = 3;
 export const TOTAL_IMAGE_PER_PAGE = 30;
 
-export function normalizeResponseData(total: number, images: any, totalImage: number, total_page: number) {
+export function normalizeResponseData(total: number, images: any, totalImage: number, total_page: number): ResponseType {
     const imagesData = { imageColumns: [], total: totalImage, total_page };
     const imageCount = Math.round(total / IMAGE_COLUMN);
     let [start, end] = [0, imageCount];
