@@ -1,4 +1,4 @@
-# Facemash App
+# Faceup App
 
 ## Overview
 
