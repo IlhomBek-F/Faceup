@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+# Facemash App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Facemash is an application that leverages the Unsplash API to provide users with high-quality, royalty-free images for their creative projects. Whether you're a developer, designer, or content creator, this app makes it easy to search for and display stunning images right from Unsplash's extensive library.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+* Search Functionality: Quickly find images by keywords.
+* Image Display: View images in various sizes and formats.
+* User-Friendly Interface: A clean and intuitive design for a seamless experience.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies Used
 
-- Configure the top-level `parserOptions` property like this:
+* Frontend: React
+* UI library: Ant Design
+* API: Unsplash API
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Demo
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Check out the live demo of Meeting App: https://travel-kh.netlify.app/
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Installation
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1.  **Clone the repository:**
+
+### git clone https://github.com/IlhomBek-F/facemash.git
+
+2.  **Configure all token key:**
+ * In order to use app you need to get a token key from unsplash and a token
+
+ * add VITE_API_KEY and assign your token key // 
+
+ * VITE_API_KEY=your unsplash token key
+ 
+3.  **Install dependencies:**
+
+### npm install
+
+4.  **Start the application:**
+
+### npm start
+
+The app should now be running on http://localhost:3000
+
+## Folder Structure
