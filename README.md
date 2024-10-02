@@ -44,3 +44,27 @@ Check out the live demo of Meeting App: https://travel-kh.netlify.app/
 The app should now be running on http://localhost:3000
 
 ## Folder Structure
+
+├── public/
+├── src/
+│ ├── assets/
+│ ├── components/
+│ │      ├── BackgroundLayout
+│ │      ├── DownloadSpin
+│ │      ├── Header
+│ │      ├── ImageColumn
+│ │      ├── ImageItem
+│ │      ├── ImageLists
+│ │      ├── ImagePlaceholders
+│ │      ├── NotFoundImage
+│ │      ├── Pagination
+│ │      ├── ShareImage
+│ │      ├── ShowMore
+│ │      ├── UpAction
+| ├── context
+| ├── hooks
+| ├── http
+| ├── service
+| ├── utils
+| ├── App.tsx
+| ├── index.css
