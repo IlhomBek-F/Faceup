@@ -45,6 +45,7 @@ The app should now be running on http://localhost:3000
 
 ## Folder Structure
 
+`
 ├── public/
 ├── src/
 │ ├── assets/
@@ -68,3 +69,4 @@ The app should now be running on http://localhost:3000
 | ├── utils
 | ├── App.tsx
 | ├── index.css
+`
