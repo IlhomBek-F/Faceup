@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { getImageByQuery } from "../service";
 import { QueryType } from "@hooks/useFetchImageByQuery";
 import { mergeColumns } from "../utils/helper";
 
-function useLoadMore(setImages) {
+function useLoadMore(setImages: SetStateAction<any>) {
     const [isLoadingMore, setLoading] = useState<boolean>(false);
 
     const handleLoadMore = (query: QueryType) => {
