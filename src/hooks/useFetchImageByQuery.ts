@@ -25,7 +25,13 @@ function useGetImageByQuery() {
         refetch()
     }
 
-    return { handleSearchImages, foundImages: data ?? [], isSearching: isFetching, errorWhileSearching: error, isSearchSuccess: isSuccess }
+    return {
+        handleSearchImages,
+        foundImages: data ?? [],
+        isSearching: isFetching,
+        errorWhileSearching: error,
+        isSearchSuccess: isSuccess
+    }
 }
 
 export { useGetImageByQuery }

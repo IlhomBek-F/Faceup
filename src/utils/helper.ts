@@ -36,3 +36,10 @@ export function downloadImage(blobUrl: string, imageAlt: string) {
     a.click();
     document.body.removeChild(a);
 }
+
+export function mergeColumns(coulmns: any[] = []) {
+    return coulmns.reduce((prev, curr) => {
+        prev.push(...curr);
+        return prev;
+    }, [])
+}

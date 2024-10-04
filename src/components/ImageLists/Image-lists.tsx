@@ -29,7 +29,7 @@ function ImageLists() {
           <ImageColumn index={2}>
             {thirdColumns?.map((image) => <ImageItem image={image} key={image.id} />)}
           </ImageColumn>
-          {imageData.total_page > query.page && <ShowMoreAction />}
+          {imageData?.total_page > query.page && <ShowMoreAction />}
         </div>
       </div>}
     </>

@@ -3,7 +3,7 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 import { useGetImageByQuery, QueryType } from "@hooks/useFetchImageByQuery";
 import { useMessage } from "@hooks/useMessage";
 import { useRandomImages } from "@hooks/useRandomImages";
-import { getImageByQuery } from "../service";
+import { useLoadMore } from "../hooks/useLoadMore";
 
 const ImageContext = createContext({});
 
@@ -12,7 +12,7 @@ function ImageProvider({ children }: { children: ReactNode }) {
     const [query, setQuery] = useState({ q: '', page: 1 });
     let { data = [], error, isLoading, refetch, isSuccess: isSuccessRandom } = useRandomImages();
     const [imageData, setImages] = useState<typeof data>(data);
-    const [loading, setLoading] = useState(false);
+    const { handleLoadMore, isLoadingMore } = useLoadMore(setImages)
 
     let { handleSearchImages, foundImages, isSearching, errorWhileSearching, isSearchSuccess } = useGetImageByQuery();
 
@@ -24,8 +24,7 @@ function ImageProvider({ children }: { children: ReactNode }) {
         } else {
             setImages(foundImages.imageColumns?.[0]?.length ? foundImages : data);
         }
-
-    }, [isLoading, isSearching])
+    }, [isLoading, isSearching]);
 
     const handleSearch = (queryData?: QueryType) => {
         if (!queryData.q?.length) {
@@ -48,15 +47,7 @@ function ImageProvider({ children }: { children: ReactNode }) {
 
     const loadMore = () => {
         setQuery({ ...query, page: query.page + 1 });
-        setLoading(true)
-        getImageByQuery({ ...query, page: query.page + 1 })
-            .then((res) => {
-                const [firstColumn, secondColumn, thirdColumn] = res.imageColumns;
-                setImages((prev) => {
-                    prev.imageColumns[2].push(...firstColumn, ...secondColumn, ...thirdColumn)
-                    return { ...prev }
-                })
-            }).finally(() => setLoading(false))
+        handleLoadMore({ ...query, page: query.page + 1 })
     }
 
     const contextData = {
@@ -67,7 +58,7 @@ function ImageProvider({ children }: { children: ReactNode }) {
         query,
         imageData,
         isLoading: (isSearching || isLoading),
-        loadingMore: loading,
+        loadingMore: isLoadingMore,
         error: (errorWhileSearching || error)
     }
 

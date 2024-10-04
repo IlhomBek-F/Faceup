@@ -26,7 +26,7 @@ function Header() {
             onSearch={() => handleSearch({ q: value, page: query.page })}
           />
         </Space>
-        {imageData.total > 1 && <div className='header-pagination'>
+        {imageData?.total > 1 && <div className='header-pagination'>
           <Pagination />
         </div>}
       </Flex>
