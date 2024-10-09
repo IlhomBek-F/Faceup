@@ -4,6 +4,7 @@ import { useGetImageByQuery, QueryType } from "@hooks/useFetchImageByQuery";
 import { useMessage } from "@hooks/useMessage";
 import { useRandomImages } from "@hooks/useRandomImages";
 import { useLoadMore } from "../hooks/useLoadMore";
+import { FloatButton } from "antd";
 
 const ImageContext = createContext({});
 
@@ -65,6 +66,7 @@ function ImageProvider({ children }: { children: ReactNode }) {
     return <ImageContext.Provider value={contextData}>
         {contextHolder}
         {children}
+        <FloatButton.BackTop />
     </ImageContext.Provider>
 }
 
