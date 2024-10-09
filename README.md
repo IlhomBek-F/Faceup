@@ -18,7 +18,7 @@ Facemash is an application that leverages the Unsplash API to provide users with
 
 ## Demo
 
-Check out the live demo of Faceup App: https://lovely-monstera-1dcc15.netlify.app/
+Check out the live demo of Faceup App: https://statuesque-pony-f6f885.netlify.app/
 
 ## Installation
 
