@@ -2,7 +2,7 @@
 
 ## Overview
 
-Facemash is an application that leverages the Unsplash API to provide users with high-quality, royalty-free images for their creative projects. Whether you're a developer, designer, or content creator, this app makes it easy to search for and display stunning images right from Unsplash's extensive library.
+Faceup is an application that leverages the Unsplash API to provide users with high-quality, royalty-free images for their creative projects. Whether you're a developer, designer, or content creator, this app makes it easy to search for and display stunning images right from Unsplash's extensive library.
 
 ## Features
 
