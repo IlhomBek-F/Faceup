@@ -16,10 +16,6 @@ Faceup is an application that leverages the Unsplash API to provide users with h
 * UI library: Ant Design
 * API: Unsplash API
 
-## Demo
-
-Check out the live demo of Faceup App: https://statuesque-pony-f6f885.netlify.app/
-
 ## Installation
 
 1.  **Clone the repository:**
