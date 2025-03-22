@@ -1,6 +1,6 @@
 import React from "react"
 import { BACKGROUND_LAYOUT_IMAGES } from '../../utils/constant';
-import './background-layout.css'
+import './backgroundLayout.css'
 
 function BackgroundLayout({ children }) {
 
