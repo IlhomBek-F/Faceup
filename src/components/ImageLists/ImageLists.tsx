@@ -1,8 +1,8 @@
 import React from 'react';
 import { ImagePlaceholders } from '../ImagePlaceholders/ImagePlaceholders';
-import { NotFoundImage } from '../NotFoundImage/Not-found-image';
+import { NotFoundImage } from '../NotFoundImage/NotFoundImage';
 import { STATUS_CODE } from '../../http/http-config';
-import { ShowMoreAction } from '../ShowMore/Show-more';
+import { ShowMoreAction } from '../ShowMore/ShowMore';
 import { ImageColumn } from '../ImageColumn/ImageColumn';
 import { ImageItem } from '../ImageItem/ImageItem';
 import { useImageContext } from '../../context/ImageProvider';
