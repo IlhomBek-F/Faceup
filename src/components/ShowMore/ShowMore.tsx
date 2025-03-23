@@ -1,7 +1,7 @@
 import React from "react"
 import { Button } from "antd";
 import { useImageContext } from "../../context/ImageProvider";
-import './show-more.css';
+import './showMore.css';
 
 function ShowMoreAction() {
     const { loadMore, loadingMore } = useImageContext()

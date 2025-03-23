@@ -1,6 +1,6 @@
 import React from 'react'
 import { Skeleton } from 'antd'
-import './image-placeholder.css'
+import './imagePlaceholder.css'
 
 function ImagePlaceholders() {
 

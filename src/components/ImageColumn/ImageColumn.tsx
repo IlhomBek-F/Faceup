@@ -1,7 +1,7 @@
 
 import { ReactNode } from 'react';
 import React from 'react';
-import './image-column.css';
+import './imageColumn.css';
 
 function ImageColumn({ children, index }: { children: ReactNode, index: number }) {
     return (

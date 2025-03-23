@@ -1,15 +1,15 @@
 import { DownloadOutlined, LikeOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Flex, Image } from 'antd';
-import { ShareImage } from '../ShareImage/Share-image';
+import { ShareImage } from '../ShareImage/ShareImage';
 import { useCallback, useRef, useState } from 'react';
 import { getDownloadImageUrl } from '../../service';
 import { downloadImage } from '../../utils/helper';
-import { DownloadSpin } from '../DownloadSpin/Download-spin';
 import { Blurhash } from 'react-blurhash';
 import React from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import './image-item.css';
+import './imageItem.css';
+import { DownloadSpin } from '../DownloadSpin/DownloadSpin';
 
 function ImageItem({ image }) {
   const { alt_description, urls, links, likes, user, blur_hash } = image;

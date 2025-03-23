@@ -1,12 +1,12 @@
 import React from 'react';
-import { ImagePlaceholders } from '../ImagePlaceholders/Image-placeholders';
-import { ImageColumn } from '../ImageColumn/Image-column';
-import { ImageItem } from '../ImageItem/Image-item';
-import { useImageContext } from '@context/ImageProvider';
+import { ImagePlaceholders } from '../ImagePlaceholders/ImagePlaceholders';
 import { NotFoundImage } from '../NotFoundImage/Not-found-image';
 import { STATUS_CODE } from '../../http/http-config';
 import { ShowMoreAction } from '../ShowMore/Show-more';
-import './image-lists.css';
+import { ImageColumn } from '../ImageColumn/ImageColumn';
+import { ImageItem } from '../ImageItem/ImageItem';
+import { useImageContext } from '../../context/ImageProvider';
+import './imageLists.css';
 
 function ImageLists() {
   const { imageData, isLoading, error, query } = useImageContext();

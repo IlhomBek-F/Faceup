@@ -1,7 +1,7 @@
 import { Button, Result } from "antd";
 import React from "react";
-import './not-found-image.css';
-import { useImageContext } from "@context/ImageProvider";
+import { useImageContext } from "../../context/ImageProvider";
+import './notFoundImage.css';
 
 function NotFoundImage() {
     const { handleBackHome } = useImageContext();
